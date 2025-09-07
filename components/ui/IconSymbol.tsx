@@ -18,9 +18,9 @@ const MAPPING = {
   'paperplane.fill': 'send',
   'chevron.left.forwardslash.chevron.right': 'code',
   'chevron.right': 'chevron-right',
-  'person.2.fill': 'person',
+  'person.crop.circle': 'person',
   'play.circle.fill': 'play-circle-fill'
-} as IconMapping;
+} as IconMapping; 
 
 /**
  * An icon component that uses native SF Symbols on iOS, and Material Icons on Android and web.
