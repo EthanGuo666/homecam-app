@@ -1,15 +1,16 @@
 import { Image } from "expo-image";
 import { Platform, StyleSheet } from "react-native";
 
-import { HelloWave } from "@/components/HelloWave";
-import ParallaxScrollView from "@/components/ParallaxScrollView";
+import { Collapsible } from "@/components/Collapsible";
+import { ExternalLink } from "@/components/ExternalLink";
 import { ThemedText } from "@/components/ThemedText";
 import { ThemedView } from "@/components/ThemedView";
+import { IconSymbol } from "@/components/ui/IconSymbol";
 
-export default function HomeScreen() {
+export default function WhatsOn() {
   return (
     <ThemedView>
-      <ThemedText>HomeScreen</ThemedText>
+      <ThemedText>WhatsOn</ThemedText>
     </ThemedView>
   );
 }
