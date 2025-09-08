@@ -1,5 +1,5 @@
 import { Image } from "expo-image";
-import { Platform, StyleSheet } from "react-native";
+import { Platform, StyleSheet, View, Text } from "react-native";
 
 import { Collapsible } from "@/components/Collapsible";
 import { ExternalLink } from "@/components/ExternalLink";
@@ -10,10 +10,10 @@ import { Background } from "@/components/Background";
 
 export default function WhatsOn() {
   return (
-    <Background>
-      <ThemedView>
-        <ThemedText>WhatsOn</ThemedText>
-      </ThemedView>
+    <Background backgroundImage={require("../../assets/images/splash-icon.png")}>
+      <View>
+        <Text className='font-bold text-3xl mt-3'>{"What's On"}</Text>
+      </View>
     </Background>
   );
 }
