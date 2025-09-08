@@ -6,5 +6,5 @@ export type BackgroundProps = ViewProps & {
 };
 
 export function Background({children}: BackgroundProps) {
-  return <ThemedView className='pt-16'>{children}</ThemedView>;
+  return <ThemedView className='pt-16 px-5'>{children}</ThemedView>;
 }
