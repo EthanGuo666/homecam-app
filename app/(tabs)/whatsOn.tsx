@@ -6,11 +6,14 @@ import { ExternalLink } from "@/components/ExternalLink";
 import { ThemedText } from "@/components/ThemedText";
 import { ThemedView } from "@/components/ThemedView";
 import { IconSymbol } from "@/components/ui/IconSymbol";
+import { Background } from "@/components/Background";
 
 export default function WhatsOn() {
   return (
-    <ThemedView>
-      <ThemedText>WhatsOn</ThemedText>
-    </ThemedView>
+    <Background>
+      <ThemedView>
+        <ThemedText>WhatsOn</ThemedText>
+      </ThemedView>
+    </Background>
   );
 }
