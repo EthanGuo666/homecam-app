@@ -19,7 +19,10 @@ const MAPPING = {
   'chevron.left.forwardslash.chevron.right': 'code',
   'chevron.right': 'chevron-right',
   'person.crop.circle': 'account-circle',
-  'play.circle.fill': 'play-circle-fill'
+  'play.circle.fill': 'play-circle-fill',
+  'video.fill' : 'videocam',
+  'lightbulb.led.fill': 'lightbulb',
+  'hifispeaker': 'speaker',
 } as IconMapping;
 
 /**
