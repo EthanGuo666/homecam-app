@@ -35,7 +35,7 @@ export default function WhatsOn() {
       {device ? (
         renderDeviceDetails(device)
       ) : (
-        <View className='flex-1 justify-center items-center mt-72 mb-5' >
+        <View className='flex-1 justify-center items-center mt-72 mb-5'>
           <IconSymbol size={64} name='doc.text.magnifyingglass' color='#888' />
           <Text className='mt-4'>Please select a device from</Text>
           <Text>home screen device list</Text>

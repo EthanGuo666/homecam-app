@@ -29,6 +29,69 @@ export default function HomeScreen() {
       status: true,
       location: "Kitchen",
     },
+    {
+      deviceId: 4,
+      name: "Camera 1",
+      type: "camera",
+      status: true,
+      location: "Front Door",
+    },
+    {
+      deviceId: 5,
+      name: "Light 1",
+      type: "light",
+      status: false,
+      location: "Living Room",
+    },
+    {
+      deviceId: 6,
+      name: "Soundbox 1",
+      type: "hifi",
+      status: true,
+      location: "Kitchen",
+    },
+    {
+      deviceId: 7,
+      name: "Camera 1",
+      type: "camera",
+      status: true,
+      location: "Front Door",
+    },
+    {
+      deviceId: 8,
+      name: "Light 1",
+      type: "light",
+      status: false,
+      location: "Living Room",
+    },
+    {
+      deviceId: 9,
+      name: "Soundbox 1",
+      type: "hifi",
+      status: true,
+      location: "Kitchen",
+    },
+    {
+      deviceId: 10,
+      name: "Camera 1",
+      type: "camera",
+      status: true,
+      location: "Front Door",
+    },
+    {
+      deviceId: 11,
+      name: "Light 1",
+      type: "light",
+      status: false,
+      location: "Living Room",
+    },
+    {
+      deviceId: 12,
+      name: "Light 1",
+      type: "light",
+      status: false,
+      location: "Living Room",
+    },
   ];
 
   const [deviceList, setDeviceList] = useState<any[]>(mockDeviceList);
@@ -66,7 +129,7 @@ export default function HomeScreen() {
           <Text className='font-bold text-3xl mt-3'>My Home</Text>
         </View>
       }
-      backgroundImage={require("../../assets/images/splash-icon.png")}
+      // backgroundImage={require("../../assets/images/splash-icon.png")}
     >
       {/* show the device list here */}
       <View className='flex-row flex-wrap justify-between'>
