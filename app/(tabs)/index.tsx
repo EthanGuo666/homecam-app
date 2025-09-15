@@ -47,7 +47,12 @@ export default function HomeScreen() {
       <View>
         {deviceList.map((device) => (
           <View key={device.deviceId} className='mt-3'>
-            <DeviceCard deviceType={device.type} deviceName={device.name} deviceLocation={device.location} devicePower={device.status}/>
+            <DeviceCard
+              deviceType={device.type}
+              deviceName={device.name}
+              deviceLocation={device.location}
+              devicePower={device.status}
+            />
           </View>
         ))}
       </View>

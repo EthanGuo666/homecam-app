@@ -14,19 +14,19 @@ export type BackgroundProps = ViewProps & {
   children?: React.ReactNode;
 };
 
-export function Background({header, backgroundImage, children }: BackgroundProps) {
+export function Background({
+  header,
+  backgroundImage,
+  children,
+}: BackgroundProps) {
   return (
     <ImageBackground
       source={backgroundImage}
       resizeMode='cover'
       className='flex-1'
     >
-      <View className='aboslute bg-transparent pt-16 pb-4 px-5'>
-        {header}
-      </View>
-      <ScrollView className='px-5'>
-        {children}
-      </ScrollView>
+      <View className='aboslute bg-transparent pt-16 pb-4 px-5'>{header}</View>
+      <ScrollView className='px-5'>{children}</ScrollView>
     </ImageBackground>
   );
 }
