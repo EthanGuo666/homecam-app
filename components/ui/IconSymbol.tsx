@@ -22,7 +22,8 @@ const MAPPING = {
   'play.circle.fill': 'play-circle-fill',
   'video.fill' : 'videocam',
   'lightbulb.led.fill': 'lightbulb',
-  'hifispeaker': 'speaker',
+  'hifispeaker.fill': 'speaker',
+  'questionmark': 'question-mark',
 } as IconMapping;
 
 /**

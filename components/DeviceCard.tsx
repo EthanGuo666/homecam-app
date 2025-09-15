@@ -18,9 +18,10 @@ export function DeviceCard({ deviceType }: Props) {
         );
       case "hifi":
         return (
-          <IconSymbol size={36} name='hifispeaker' color={iconColor} />
+          <IconSymbol size={36} name='hifispeaker.fill' color={iconColor} />
         );
       default:
+        return <IconSymbol size={36} name='questionmark' color={iconColor} />;
     }
   };
 
