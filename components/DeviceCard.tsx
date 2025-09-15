@@ -1,19 +1,15 @@
+import React, { useCallback } from "react";
 import { View, Text, Dimensions, TouchableOpacity } from "react-native";
 import { IconSymbol } from "@/components/ui/IconSymbol";
+import { Device } from "@/types";
 
 type Props = {
-  deviceType: string;
-  deviceName: string;
-  deviceLocation: string;
-  devicePower: boolean;
+  device: Device;
+  onPowerButtonClick: (device: Device) => void;
+  onCardClick: (device: Device) => void;
 };
 
-export function DeviceCard({
-  deviceType,
-  deviceName,
-  deviceLocation,
-  devicePower,
-}: Props) {
+export function DeviceCard({ device, onPowerButtonClick, onCardClick }: Props) {
   const iconColor = "#919191";
   const powerOnColor = "#007aff";
 
@@ -22,10 +18,10 @@ export function DeviceCard({
   const cardWidth = (3 / 7) * width;
 
   // device parameters
-  const name = deviceName ?? "Device";
-  const type = deviceType ?? "unknown";
-  const location = deviceLocation ?? "Unknown Location";
-  const powerOn = devicePower ?? false;
+  const name = device.name ?? "Device";
+  const type = device.type ?? "unknown";
+  const location = device.location ?? "Unknown Location";
+  const powerOn = device.status ?? false;
 
   const deviceIcon = (deviceType: string) => {
     switch (deviceType) {
@@ -45,15 +41,20 @@ export function DeviceCard({
   };
 
   return (
-    <View
+    <TouchableOpacity
+      activeOpacity={0.8}
       style={{ width: cardWidth }}
       className='h-32 bg-white/90 rounded-3xl p-4 relative'
+      onPress={() => onCardClick(device)}
     >
       <TouchableOpacity className='absolute top-3 left-3'>
         {deviceIcon(type)}
       </TouchableOpacity>
 
-      <TouchableOpacity className='absolute top-3 right-3'>
+      <TouchableOpacity
+        className='absolute top-3 right-3'
+        onPressOut={() => onPowerButtonClick(device)}
+      >
         <IconSymbol
           size={36}
           name='power.circle.fill'
@@ -65,6 +66,6 @@ export function DeviceCard({
         <Text className='text-lg font-semibold text-gray-800'>{name}</Text>
         <Text className='text-sm text-gray-500'>{location}</Text>
       </View>
-    </View>
+    </TouchableOpacity>
   );
 }

@@ -1,7 +1,8 @@
-import { useState, useEffect } from "react";
+import { useState, useEffect, useCallback } from "react";
 import { View, Text } from "react-native";
 import { Background } from "@/components/Background";
 import { DeviceCard } from "@/components/DeviceCard";
+import { Device } from "@/types";
 
 export default function HomeScreen() {
   const mockDeviceList = [
@@ -30,9 +31,31 @@ export default function HomeScreen() {
 
   const [deviceList, setDeviceList] = useState<any[]>(mockDeviceList);
 
-  useEffect(() => {
-    setDeviceList(deviceList);
-  }, [deviceList]);
+  const handlePowerButtonClick = useCallback(
+    (device: Device) => {
+      // api call to switch on the device power here
+
+
+
+      // if successful, set that device power state here
+      const updatedDeviceList = deviceList.map((d) => {
+        if (d.deviceId === device.deviceId) {
+          return { ...d, status: !d.status };
+        }
+        return d;
+      });
+      setDeviceList(updatedDeviceList);
+
+
+
+    },
+    [deviceList]
+  );
+
+  const handleCardClick = useCallback(() => {
+    // navigate to device detail page
+    console.log("Card clicked");
+  }, []);
 
   return (
     <Background
@@ -48,10 +71,9 @@ export default function HomeScreen() {
         {deviceList.map((device) => (
           <View key={device.deviceId} className='mt-3'>
             <DeviceCard
-              deviceType={device.type}
-              deviceName={device.name}
-              deviceLocation={device.location}
-              devicePower={device.status}
+              device={device}
+              onPowerButtonClick={handlePowerButtonClick}
+              onCardClick={handleCardClick}
             />
           </View>
         ))}
