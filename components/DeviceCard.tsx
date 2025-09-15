@@ -3,9 +3,9 @@ import { IconSymbol } from "@/components/ui/IconSymbol";
 
 type Props = {
   deviceType: string;
-  deviceName?: string;
-  deviceLocation?: string;
-  devicePower?: boolean;
+  deviceName: string;
+  deviceLocation: string;
+  devicePower: boolean;
 };
 
 export function DeviceCard({
