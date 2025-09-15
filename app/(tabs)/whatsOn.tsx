@@ -1,7 +1,29 @@
-import { View, Text } from "react-native";
+import { useEffect } from "react";
+import { View, Text, Image } from "react-native";
+import { Stack, useLocalSearchParams } from "expo-router";
+
 import { Background } from "@/components/Background";
+import { IconSymbol } from "@/components/ui/IconSymbol";
+import { Device } from "@/types";
 
 export default function WhatsOn() {
+  const params = useLocalSearchParams();
+  const device: Device | null = params.device
+    ? JSON.parse(params.device as string)
+    : null;
+
+  const renderDeviceDetails = (device: Device) => {
+    return (
+      <View className='flex-1 justify-center items-center'>
+        <Text className='text-2xl font-bold mt-4'>{device.name}</Text>
+        <Text className='text-lg mt-2'>Location: {device.location}</Text>
+        <Text className='text-lg mt-2'>
+          Status: {device.status ? "Online" : "Offline"}
+        </Text>
+      </View>
+    );
+  };
+
   return (
     <Background
       header={
@@ -9,7 +31,16 @@ export default function WhatsOn() {
           <Text className='font-bold text-3xl mt-3'>{"What's On"}</Text>
         </View>
       }
-      backgroundImage={require("../../assets/images/splash-icon.png")}
-    ></Background>
+    >
+      {device ? (
+        renderDeviceDetails(device)
+      ) : (
+        <View className='flex-1 justify-center items-center mt-72 mb-5' >
+          <IconSymbol size={64} name='doc.text.magnifyingglass' color='#888' />
+          <Text className='mt-4'>Please select a device from</Text>
+          <Text>home screen device list</Text>
+        </View>
+      )}
+    </Background>
   );
 }

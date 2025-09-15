@@ -1,5 +1,7 @@
 import { useState, useEffect, useCallback } from "react";
 import { View, Text } from "react-native";
+import { useRouter } from "expo-router";
+
 import { Background } from "@/components/Background";
 import { DeviceCard } from "@/components/DeviceCard";
 import { Device } from "@/types";
@@ -30,12 +32,11 @@ export default function HomeScreen() {
   ];
 
   const [deviceList, setDeviceList] = useState<any[]>(mockDeviceList);
+  const router = useRouter();
 
   const handlePowerButtonClick = useCallback(
     (device: Device) => {
       // api call to switch on the device power here
-
-
 
       // if successful, set that device power state here
       const updatedDeviceList = deviceList.map((d) => {
@@ -45,16 +46,17 @@ export default function HomeScreen() {
         return d;
       });
       setDeviceList(updatedDeviceList);
-
-
-
     },
     [deviceList]
   );
 
-  const handleCardClick = useCallback(() => {
-    // navigate to device detail page
+  const handleCardClick = useCallback((device: Device) => {
+    // navigate to what's on page
     console.log("Card clicked");
+    router.push({
+      pathname: "/(tabs)/whatsOn",
+      params: { device: JSON.stringify(device) },
+    });
   }, []);
 
   return (

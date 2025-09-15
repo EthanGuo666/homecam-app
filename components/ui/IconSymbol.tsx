@@ -25,6 +25,7 @@ const MAPPING = {
   'hifispeaker.fill': 'speaker',
   'questionmark': 'question-mark',
   'power.circle.fill': 'power-settings-new',
+  'doc.text.magnifyingglass': 'find-in-page',
 } as IconMapping;
 
 /**
