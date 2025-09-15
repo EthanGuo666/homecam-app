@@ -44,7 +44,7 @@ export default function HomeScreen() {
       backgroundImage={require("../../assets/images/splash-icon.png")}
     >
       {/* show the device list here */}
-      <View>
+      <View className='flex-row flex-wrap justify-between'>
         {deviceList.map((device) => (
           <View key={device.deviceId} className='mt-3'>
             <DeviceCard
