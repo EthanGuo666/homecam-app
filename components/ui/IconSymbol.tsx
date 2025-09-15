@@ -24,6 +24,7 @@ const MAPPING = {
   'lightbulb.led.fill': 'lightbulb',
   'hifispeaker.fill': 'speaker',
   'questionmark': 'question-mark',
+  'power.circle.fill': 'power-settings-new',
 } as IconMapping;
 
 /**

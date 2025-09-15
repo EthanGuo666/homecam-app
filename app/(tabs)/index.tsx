@@ -9,21 +9,21 @@ export default function HomeScreen() {
       deviceId: 1,
       name: "Camera 1",
       type: "camera",
-      status: "online",
+      status: true,
       location: "Front Door",
     },
     {
       deviceId: 2,
       name: "Light 1",
       type: "light",
-      status: "offline",
+      status: false,
       location: "Living Room",
     },
     {
       deviceId: 3,
       name: "Soundbox 1",
       type: "hifi",
-      status: "online",
+      status: true,
       location: "Kitchen",
     },
   ];
@@ -36,16 +36,18 @@ export default function HomeScreen() {
 
   return (
     <Background
+      header={
+        <View>
+          <Text className='font-bold text-3xl mt-3'>My Home</Text>
+        </View>
+      }
       backgroundImage={require("../../assets/images/splash-icon.png")}
     >
-      <View>
-        <Text className='font-bold text-3xl mt-3'>My Home</Text>
-      </View>
       {/* show the device list here */}
       <View>
         {deviceList.map((device) => (
-          <View key={device.deviceId}>
-            <DeviceCard deviceType={device.type}/>
+          <View key={device.deviceId} className='mt-3'>
+            <DeviceCard deviceType={device.type} deviceName={device.name} deviceLocation={device.location} devicePower={device.status}/>
           </View>
         ))}
       </View>
