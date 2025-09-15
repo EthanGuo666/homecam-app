@@ -1,4 +1,9 @@
-import { ImageBackground, View, type ViewProps } from "react-native";
+import {
+  ImageBackground,
+  ScrollView,
+  View,
+  type ViewProps,
+} from "react-native";
 
 export type BackgroundProps = ViewProps & {
   backgroundImage?: any;
@@ -9,10 +14,12 @@ export function Background({ backgroundImage, children }: BackgroundProps) {
   return (
     <ImageBackground
       source={backgroundImage}
-      resizeMode="cover"
-      className="flex-1"
+      resizeMode='cover'
+      className='flex-1'
     >
-      <View className='flex-1 bg-transparent pt-16 px-5'>{children}</View>
+      <ScrollView className='flex-1 bg-transparent pt-16 px-5'>
+        {children}
+      </ScrollView>
     </ImageBackground>
   );
 }
