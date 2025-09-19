@@ -4,6 +4,9 @@ import { Stack, useLocalSearchParams } from "expo-router";
 
 import { Background } from "@/components/Background";
 import { IconSymbol } from "@/components/ui/IconSymbol";
+import { CameraControl } from "@/components/CameraControl";
+import { LightControl } from "@/components/LightControl";
+import { HifiControl } from "@/components/HifiControl";
 import { Device } from "@/types";
 
 export default function WhatsOn() {
@@ -13,15 +16,24 @@ export default function WhatsOn() {
     : null;
 
   const renderDeviceDetails = (device: Device) => {
-    return (
-      <View className='flex-1 justify-center items-center'>
-        <Text className='text-2xl font-bold mt-4'>{device.name}</Text>
-        <Text className='text-lg mt-2'>Location: {device.location}</Text>
-        <Text className='text-lg mt-2'>
-          Status: {device.status ? "Online" : "Offline"}
-        </Text>
-      </View>
-    );
+    switch (device.type) {
+      case "camera":
+        return <CameraControl device={device} />;
+      case "light":
+        return <LightControl device={device} />;
+      case "hifi":
+        return <HifiControl device={device} />;
+      default:
+        return (
+          <View className='flex-1 justify-center items-center'>
+            <Text className='text-2xl font-bold mt-4'>{device.name}</Text>
+            <Text className='text-lg mt-2'>Location: {device.location}</Text>
+            <Text className='text-lg mt-2'>
+              Status: {device.status ? "Online" : "Offline"}
+            </Text>
+          </View>
+        );
+    }
   };
 
   return (
