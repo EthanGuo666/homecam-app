@@ -10,12 +10,14 @@ import {
 
 export type BackgroundProps = ViewProps & {
   header?: React.ReactNode;
+  xmargin?: boolean;
   backgroundImage?: any;
   children?: React.ReactNode;
 };
 
 export function Background({
   header,
+  xmargin,
   backgroundImage,
   children,
 }: BackgroundProps) {

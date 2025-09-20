@@ -6,11 +6,11 @@ type Props = {
 };
 
 export function CameraControl({ device }: Props) {
-  // create camera control UI here
+
   return (
-    <View className='flex-1 justify-center items-center'>
+    <View className='justify-center items-center h-full w-full'>
+      <View className='h-96 w-full bg-gray-900 rounded-lg'></View>
       <Text className='text-2xl font-bold mt-4'>Camera Control</Text>
-      <Text className='text-lg mt-2'>[Camera feed and controls go here]</Text>
       <Text className='text-lg mt-2'>Device Name: {device.name}</Text>
       <Text className='text-lg mt-2'>Location: {device.location}</Text>
       <Text className='text-lg mt-2'>

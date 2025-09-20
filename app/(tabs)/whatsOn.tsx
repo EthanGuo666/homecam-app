@@ -43,6 +43,7 @@ export default function WhatsOn() {
           <Text className='font-bold text-3xl mt-3'>{"What's On"}</Text>
         </View>
       }
+      // xmargin={false}
     >
       {device ? (
         renderDeviceDetails(device)
