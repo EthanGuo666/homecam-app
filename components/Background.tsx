@@ -17,7 +17,7 @@ export type BackgroundProps = ViewProps & {
 
 export function Background({
   header,
-  xmargin,
+  xmargin = true,
   backgroundImage,
   children,
 }: BackgroundProps) {
@@ -28,7 +28,7 @@ export function Background({
       className='flex-1'
     >
       <View className='aboslute bg-transparent pt-16 pb-4 px-5'>{header}</View>
-      <ScrollView className='px-5'>{children}</ScrollView>
+      <ScrollView className={xmargin ? "px-5" : ""}>{children}</ScrollView>
     </ImageBackground>
   );
 }
